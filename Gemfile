@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '4.2.3'
-gem 'sqlite3'
 gem 'uglifier',     '>= 1.3.0'
 gem 'sass-rails',   '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -14,7 +13,13 @@ gem 'elo'
 gem 'awesome_print'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+
+group :production do
+  gem 'pg'
 end
