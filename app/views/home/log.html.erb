@@ -1,0 +1,53 @@
+<h1 class='page-header'>Log Game</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@game) do |f| %>
+
+      <!-- Error Messages -->
+      <% if @game.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+          <h4>
+            <%= "#{pluralize(@game.errors.count, "error")} prohibited this game from being saved:" %>
+          </h4>
+          <ul>
+            <% @game.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="from-group">
+        <%= f.label :date_played, class: "col-sm-3 control-label"%>
+        <%= f.date_select :date_played, :order => [:month, :day, :year] %>
+      </div>
+      <br/>
+
+      <div class="from-group">
+        <%= f.label :opponent, class: "col-sm-3 control-label" %>
+        <%= f.collection_select :opponent_id, @users, :id, :email_id %>
+      </div>
+      <br/>
+
+
+      <div class="from-group">
+        <%= f.label :user_score, "Your Score", class: "col-sm-3 control-label" %>
+        <%= f.text_field :user_score %>
+      </div>
+      <br/>
+
+      <div class="form-group">
+        <%= f.label :opponent_score, "Their Score", class: "col-sm-3 control-label" %>
+        <%= f.text_field :opponent_score %>
+      </div>
+      <br/>
+
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= button_tag "Cancel", type: :reset %>
+    <% end %>
+  </div>
+</div>

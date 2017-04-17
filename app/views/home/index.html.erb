@@ -1,0 +1,30 @@
+<h1 class='page-header'>Leaderboard</h1>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+<% end %>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Games Played</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rank = 1 %>
+    <% @ranking.each do |r| %>
+      <tr>
+        <td><%= rank %></td>
+        <td><%= r.user.email_id %></td>
+        <td><%= r.score %></td>
+        <td><%= r.games_played %></td>
+      </tr>
+      <% rank += 1 %>
+    <% end %>
+  </tbody>
+</table>

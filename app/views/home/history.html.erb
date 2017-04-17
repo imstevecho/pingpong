@@ -1,0 +1,23 @@
+<h1 class='page-header'>History</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Opponent</th>
+      <th>Score</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.played_date %></td>
+        <td><%= game.opponent.email_id %></td>
+        <td><%= game.score %></td>
+        <td><%= game.result %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
