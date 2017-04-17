@@ -11,15 +11,15 @@ gem 'devise',       '~> 3.5.2'
 gem 'devise-bootstrap-views', '~> 0.0.6'
 gem 'elo'
 gem 'awesome_print'
+gem 'pg'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'capybara', '2.7.1'
+  gem 'factory_girl'
 end
 
-
-group :production do
-  gem 'pg'
-end
